@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		div.body{
+			border:solid 1px red;
+			width: auto;
+			margin:0 auto;
+		}
+		header,footer{
+			font-size:25px;
+			font-weight: bold;
+			text-align: center;
+		}
+		nav{
+			display: flex;
+			background: gray;
+			justify-content: space-between;
+			margin-bottom:5px;
+		}
+		nav>span{
+			background: purple;
+		}
+		.main{
+			display: flex;
+		}
+		.main>.left{
+			width: 150px;
+			background-color: yellow;
+		}
+		.main>.center{
+			width: 380px;
+			background: #ccc;
+			margin:0 10px;
+		}
+		.main>.right{
+			width: 150px;
+			background-color: pink;
+		}
+		.center .c2, .center .c4{
+			display: flex;
+			justify-content: space-between;
+		}
+		.center .c2>div{
+			width: 48%;
+			background-color: yellow;
+			border:solid 1px red;
+		}
+		.center .c4>span{
+			width: 32%;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="body">
+		<header>头部</header>
+		<nav>
+			<span>首页</span>
+			<span>产品列表</span>
+			<span>联想我们</span>
+			<span>三个字</span>
+			<span>首页</span>
+			<span>首页</span>
+		</nav>
+		<div class="main">
+			<div class="left">左边</div>
+			<div class="center">
+				<div class="c1">中间1</div>
+				<div class="c2">
+					<div class="c2a">中1左</div>
+					<div class="c2b">中1右</div>
+				</div>
+				<div class="c3">中间2</div>
+				<div class="c4">
+					<span>中2左</span>
+					<span>中2中</span>
+					<span>中2右</span>
+				</div>
+				<div class="c5">中间3</div>
+			</div>
+			<div class="right">右边</div>
+		</div>
+		<footer>底部</footer>
+	</div>
+</body>
+</html>

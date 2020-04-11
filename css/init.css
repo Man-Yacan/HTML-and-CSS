@@ -1,0 +1,37 @@
+ /* 整体样式 */
+ *{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    color: rgb(184, 8, 169);
+}
+a{
+    color: cadetblue;
+}
+a:hover{
+    color: red;
+}
+.main_width{
+    width: 1200px;
+    margin: 0 auto;
+}
+img{
+    border: none;
+    display: block; /*默认的图片是行内元素，但是行内元素默认都会有一个小“border”，会造成Bug。*/
+}
+/* 清除浮动 */
+.clear_float::after{
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    zoom: 1;/*缩放元素*/
+    height: 0;
+}
+body{
+    min-width: 1200px;
+}

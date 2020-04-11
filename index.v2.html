@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入整体样式 -->
+    <link rel="stylesheet" href="css/init.css">
+    <!-- 引入图标 -->
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <style>
+        /* 顶部广告条 */
+        .top_ad {
+            background: url(uploads/top_header.jpg) center center no-repeat black;
+            height: 80px;
+        }
+        .top_ad>.main_width{
+            /* border: 1px solid cyan; */
+            text-align: right;
+        }
+        .top_ad>.main_width>a{
+            margin-right: 5px;
+        }
+        /* 主导航条的实现 */
+        .top_nav{
+            background: darkolivegreen;
+        }
+        .top_nav>.main_width{
+            height: 30px;
+            /* border: 1px solid cyan; */
+            line-height: 30px;
+        }
+        .top_nav>.main_width>.right{
+            float: right;
+            color: darkgray;
+        }
+        .top_nav>.main_width>.right>a{
+            padding: 0 5px;
+        }
+        /* 为了实现经过a标签时，i标签也变色 */
+        .top_nav>.main_width>.right>a:hover>i{
+            color: red;
+        }
+        .top_nav>.main_width>.left{
+            float: left;
+        }
+        .top_nav>.main_width>.left>.reg{
+            color: red;
+        }
+        /* LOGO区域 */
+        /* 商品分类区域实现 */
+        .top_nav_02{
+            height: 45px;
+            border-bottom: solid 2px #ca0000;
+            /* overflow: hidden; */
+        }
+        .top_nav_02>.main_width{
+            height: 45px;
+            background-color: pink;
+            /* border: 1px solid cyan; */
+            line-height: 45px;
+        }
+        .top_nav_02>.main_width>.left{
+            float: left;
+            width: 210px;
+            background-color: #ca0000;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .top_nav_02>.main_width>.right{
+            float: left;
+        }
+        .top_nav_02>.main_width>.right>li{
+            float: left;
+            width: 100px;
+            text-align: center;
+        }
+        .top_nav_02>.main_width>.right>li>a{
+            font-size: 13px;
+        }
+        /* 这个地方用了一个特殊技巧，即盒子模型溢出原理,对.top_nav_02设置overflow: hidden;即会将该元素隐藏. 有定位的,盖住没有定位的元素.有定位,沒有Z-index属性设置,则后面的盖住前面的。都有定位并都有z-index设置,则比较大小.*/
+        .top_nav_02>.main_bg{
+            background: url(uploads/jd_bg.png) center center no-repeat;
+            display: block;
+            height: 470px;
+            /* border: 2px solid cyan; */
+            /* position: relative; 开启这个属性可以使得.main_00元素置于之下位置 */
+        }
+        /* 主体区域 */
+        .main_00{
+            height: 465px;
+            border: 1px solid cyan;
+            background-color: darkgoldenrod;
+        }
+        /* 主体区域_00 */
+        .main_00>.left{
+            float: left;
+            width: 210px;
+            height: 467px;
+            background-color: #e20000;
+            margin-top: -2px;
+        }
+        .main_00>.inter{
+            float: left;
+            margin: 10px 0 0 7px;
+        }
+        .main_00>.right{
+            float: right;
+            width: 250px;
+            height: 453px;
+            border: solid 1px gray;
+            margin-top: 10px;
+        }
+        /* 主体区域_01 */
+        .main_01{
+            margin: 15px 0px;
+        }
+        .main_01>.left{
+            float: left;
+            height: 163px;
+            width: 200px;
+            background-color: #604f4d;
+        }
+        .main_01>.right{
+            float: left;
+            height: 163px;
+            width: 1000px;
+            background-color: #ebebeb;
+        }
+        /* 主体区域_02 */
+        .main_02_00{
+            line-height: 3em;
+            border-bottom: hotpink 2px solid;
+        }
+        .main_02_00>a>b{
+            float: left;
+            font-weight: bold;
+        }
+        .main_02_00>.right{
+            float: right;
+            padding-right: 10px;
+        }
+        .main_02_01{
+            height: 360px;
+            border: 2px solid cyan;
+        }
+    </style>
+</head>
+<body>
+    <div class="top_ad">
+        <div class="main_width">
+            <a href="" title="关闭广告">
+                <img src="uploads/矩形8.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="top_nav">
+        <div class="main_width clear_float">
+            <div class="left">
+                欢迎来到品优购，请<a href="#">登录</a> <a href="#" class="reg">注册</a>
+            </div>
+            <div class="right">
+                <a href="#">我的订单<i class="iconfont icon-xiangxiajiantou"></i></a> | 
+                <a href="#">我的订单</a> | 
+                <a href="#">我的订单</a> | 
+                <a href="#">我的订单<i class="iconfont icon-xiangxiajiantou"></i></a> | 
+                <a href="#">我的订单</a> | 
+                <a href="#">我的订单</a> | 
+                <a href="#">我的订单<i class="iconfont icon-xiangxiajiantou"></i></a> | 
+                <a href="#">我的订单</a>
+            </div>
+        </div>
+    </div>
+    <div class="logo_search">logo_search</div>
+    <div class="top_nav_02">
+        <div class="main_width clear_float">
+            <div class="left">全Bu商品分类</div>
+            <ul class="right">
+                <li><a href="">服装市场</a></li>
+                <li><a href="">汽车配件</a></li>
+                <li><a href="">图书电影</a></li>
+                <li><a href="">居家生活</a></li>
+                <li><a href="">学习Ban工</a></li>
+                <li><a href="">休闲愉快</a></li>
+            </ul>
+        </div>
+        <a href="#" class="main_bg"></a>
+    </div>
+    <div class="main main_width">
+        <div class="main_00 clear_float">
+            <aside class="left"></aside>
+            <div class="inter"><img src="uploads/banner.jpg" alt=""></div>
+            <aside class="right"></aside>
+        </div>
+        <div class="main_01">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <div class="main_02">
+            <div class="main_02_00 clear_float">
+                <a href="#"><b>家用电器</b></a>
+                <div class="right">
+                    <a href="#">大家电</a> | 
+                    <a href="#">大家电</a> | 
+                    <a href="#">大家电</a> | 
+                    <a href="#">大家电</a> | 
+                    <a href="#">大家电</a> | 
+                    <a href="#">大家电</a> | 
+                    <a href="#">大家电</a>
+                </div>
+            </div>
+            <div class="main_02_01">
+                <div class="main_width">
+
+                </div>
+            </div>
+            <div class="main_02_02"></div>
+            <div class="main_02_03"></div>
+        </div>
+        <div class="main_03">主体3区</div>
+        <div class="main_04">主体4区</div>
+    </div>
+    <footer></footer>
+</body>
+</html>

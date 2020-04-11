@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入整体样式 -->
+    <link rel="stylesheet" href="css/init.css">
+    <!-- 引入图标 -->
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <style>
+        /* 顶部广告条 */
+        .top_ad {
+            background: url(uploads/top_header.jpg) center center no-repeat black;
+            height: 80px;
+        }
+        .top_ad>.main_width{
+            /* border: 1px solid cyan; */
+            text-align: right;
+        }
+        .top_ad>.main_width>a{
+            margin-right: 5px;
+        }
+        /* 主导航条的实现 */
+        .top_nav{
+            background: darkolivegreen;
+        }
+        .top_nav>.main_width{
+            height: 30px;
+            /* border: 1px solid cyan; */
+            line-height: 30px;
+        }
+        .top_nav>.main_width>.right{
+            float: right;
+            color: darkgray;
+        }
+        .top_nav>.main_width>.right>a{
+            padding: 0 5px;
+        }
+        /* 为了实现经过a标签时，i标签也变色 */
+        .top_nav>.main_width>.right>a:hover>i{
+            color: red;
+        }
+        .top_nav>.main_width>.left{
+            float: left;
+        }
+        .top_nav>.main_width>.left>.reg{
+            color: red;
+        }
+        /* LOGO区域 */
+        /* 分类区域 */
+    </style>
+</head>
+<body>
+    <div class="top_ad">
+        <div class="main_width">
+            <a href="" title="关闭广告">
+                <img src="uploads/矩形8.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="top_nav">
+        <div class="main_width clear_float">
+            <div class="left">
+                欢迎来到品优购，请<a href="#">登录</a> <a href="#" class="reg">注册</a>
+            </div>
+            <div class="right">
+                <a href="#">我的订单<i class="iconfont icon-xiangxiajiantou"></i></a> | 
+                <a href="#">我的订单</a> | 
+                <a href="#">我的订单</a> | 
+                <a href="#">我的订单<i class="iconfont icon-xiangxiajiantou"></i></a> | 
+                <a href="#">我的订单</a> | 
+                <a href="#">我的订单</a> | 
+                <a href="#">我的订单<i class="iconfont icon-xiangxiajiantou"></i></a> | 
+                <a href="#">我的订单</a>
+            </div>
+        </div>
+    </div>
+    <div class="logo_search">logo_search</div>
+    <div class="top_nav_02">top_nav_02</div>
+    <div class="mian">mian</div>
+    <footer></footer>
+</body>
+</html>
