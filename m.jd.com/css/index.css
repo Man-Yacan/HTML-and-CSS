@@ -10,14 +10,20 @@ ul {
 /* body整体 */
 
 body {
-    width: 100%;
-    /* height: ; */
-    min-width: 320px;
-    max-width: 640px;
     margin: 0 auto;
     font-size: 14px;
     font-family: -apple-system, Helvetica, sans-serif;
     color: #666666;
+}
+
+
+/* 流动盒子模型 */
+
+.box-width {
+    width: 100%;
+    /* height: ; */
+    min-width: 320px;
+    max-width: 640px;
 }
 
 
@@ -77,7 +83,7 @@ header>ul>li:nth-child(4) {
 
 .search-row {
     height: 44px;
-    position: relative;
+    position: fixed;
     overflow: hidden;
 }
 
@@ -148,4 +154,58 @@ header>ul>li:nth-child(4) {
     background-color: aqua;
     line-height: 44px;
     text-align: center;
+}
+
+.main>.brand {
+    height: 150px;
+}
+
+.main>.brand>div {
+    width: 33.33%;
+    float: left;
+}
+
+.main>.brand>div>a>img {
+    vertical-align: top;
+    width: 100%;
+}
+
+
+/* nav导航栏部分 */
+
+.main>nav>a {
+    width: 20%;
+    background-color: #cccccc;
+    display: block;
+    /* height: 50px; */
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: aliceblue;
+    float: left;
+}
+
+.main>nav>a>img {
+    width: 60%;
+}
+
+
+/* 新闻模块 */
+
+.main>.news {
+    height: 210px;
+}
+
+.main>.news>a>img {
+    float: left;
+}
+
+.main>.news>a:nth-child(1)>img {
+    width: 50%;
+}
+
+.main>.news>a:nth-child(n+2)>img {
+    width: 25%;
+    border-left: 1px solid cyan;
+    box-sizing: border-box;
 }
