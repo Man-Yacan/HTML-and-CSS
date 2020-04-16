@@ -1,0 +1,84 @@
+// 设置最常见屏幕大小，进行媒体查询分类,对hmtl字体大小进行动态设置.
+// 设置常见的屏幕尺寸 修改里面的html文字大小
+a {
+    text-decoration: none;
+}
+// 一定要写到最上面
+html {
+    font-size: 50px;
+}
+// 我们此次定义的划分的份数 为 15
+@piece: 15;
+// 320
+@media screen and (min-width: 320px) {
+    html {
+        font-size: 320px / @piece;
+    }
+}
+// 360
+@media screen and (min-width: 360px) {
+    html {
+        font-size: 360px / @piece;
+    }
+}
+// 375 iphone 678
+@media screen and (min-width: 375px) {
+    html {
+        font-size: 375px / @piece;
+    }
+}
+
+// 384
+@media screen and (min-width: 384px) {
+    html {
+        font-size: 384px / @piece;
+    }
+}
+
+// 400
+@media screen and (min-width: 400px) {
+    html {
+        font-size: 400px / @piece;
+    }
+}
+// 414
+@media screen and (min-width: 414px) {
+    html {
+        font-size: 414px / @piece;
+    }
+}
+// 424
+@media screen and (min-width: 424px) {
+    html {
+        font-size: 424px / @piece;
+    }
+}
+
+// 480
+@media screen and (min-width: 480px) {
+    html {
+        font-size: 480px / @piece;
+    }
+}
+
+// 540
+@media screen and (min-width: 540px) {
+    html {
+        font-size: 540px / @piece;
+    }
+}
+// 720
+@media screen and (min-width: 720px) {
+    html {
+        font-size: 720px / @piece;
+    }
+}
+
+// 750
+@media screen and (min-width: 750px) {
+    html {
+        font-size: 750px / @piece;
+    }
+}
+
+

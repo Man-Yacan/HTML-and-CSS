@@ -1,0 +1,111 @@
+// 首页的样式less文件
+@import "common";
+// @import 导入的意思 可以把一个样式文件导入到另外一个样式文件里面
+// link 是把一个 样式文件引入到 html页面里面
+@base-font: 50;
+
+body {
+    min-width: 320px;
+    width: 15rem;
+    margin: 0 auto;
+    font-family: Arial, Helvetica;
+    background: #F2F2F2;
+    line-height: 1.5;
+}
+
+// top-Bar
+.top-bar{
+    width: 15rem;
+    height: 88rem / @base-font;
+    background-color: #ffc001;
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    .classify{
+        width: 44rem / @base-font;
+        height: 70rem / @base-font;
+        // background-color: pink;
+        background: url(../images/classify.png);
+        background-size: 44rem / @base-font 70rem / @base-font;
+        margin: 11rem / @base-font 25rem / @base-font 7rem / @base-font 24rem / @base-font;
+    }
+
+    .search-input{
+        flex: 1;
+        // background-color: slateblue;
+        input{
+            outline: none;
+            width: 100%;
+            border: none;
+            height: 66rem / @base-font;
+            border-radius: 33rem / @base-font;
+            background-color: #fff2cc;
+            margin-top: 12rem / @base-font;
+            // text-align: center;
+            font-size: 25rem / @base-font;
+            color: #666666;
+            padding-left: 55rem / @base-font;
+            box-sizing: border-box;
+        }
+    }
+
+    .login{
+        width: 75rem / @base-font;
+        height: 70rem / @base-font;
+        // background-color: skyblue;
+        margin: 10rem / @base-font;
+        font-size: 25rem / @base-font;
+        line-height: 70rem / @base-font;
+        text-align: center;
+        color: white;
+    }
+}
+
+// banner
+.banner{
+    width: 100%;
+    height: 368rem / @base-font;
+    img{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+// ad
+.ad{
+    display: flex;
+    a{
+        flex: 1;
+        img{
+            width: 100%;
+            height: 100%;        
+        }
+    }
+}
+
+// nav
+nav{
+    width: 100%;
+    a{
+        float: left;
+        height: 150rem / @base-font;
+        width: 150rem / @base-font;
+        text-align: center;
+        img{
+            width: 82rem / @base-font;
+            height: 82rem / @base-font;
+            margin: 10rem / @base-font auto 0;
+            display: block;
+        }
+        span{
+            color: #666;
+            font-size: 25rem / @base-font;
+        }
+        &:nth-child(n+6){
+            margin-top: 20rem / @base-font;
+        }
+    }
+}
