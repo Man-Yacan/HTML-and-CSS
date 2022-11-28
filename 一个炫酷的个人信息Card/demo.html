@@ -15,7 +15,7 @@
             background-color: blue;
             margin: 300px auto;
             position: relative;
-            /* overflow: hidden; */
+            overflow: hidden;
         }
 
         .img-box>img {
@@ -37,10 +37,10 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            animation: animate 4s linear infinite;
+            animation: animate-rotate 4s linear infinite; 
         }
 
-        @keyframes animate {
+        @keyframes animate-rotate {
             0% {
                 transform: translate(-50%, -50%) rotate(0deg);
             }
