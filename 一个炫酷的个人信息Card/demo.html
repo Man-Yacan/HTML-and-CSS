@@ -13,18 +13,17 @@
             text-align: center;
             line-height: 300px;
             background-color: blue;
-            margin: 300px auto;
+            margin: 1rem auto;
             position: relative;
-            overflow: hidden;
         }
 
-        .img-box>img {
-            height: 280px;
-            width: 280px;
+        .img-box img {
+            height: 280px!important;
+            width: 280px!important;
             background-color: aquamarine;
-            position: absolute;
-            left: 50%;
-            top: 50%;
+            position: absolute!important;
+            left: 50%!important;
+            top: 50%!important;
             transform: translate(-50%, -50%);
         }
 
@@ -49,14 +48,24 @@
                 transform: translate(-50%, -50%) rotate(360deg);
             }
         }
+        .hidden-toggle {
+            overflow: hidden
+        }
+        #hidden-toggle {
+            margin: 0 auto;
+            display: block;
+        }
     </style>
 </head>
 
 <body>
     <div class="img-box">
-        <img src="https://image.manyacan.com/202211280901328.png" alt="">
+        <img src="https://s1.ax1x.com/2022/11/21/zQeyKf.png" alt="">
     </div>
-
+    <button id="hidden-toggle" type="submit" class="submit btn btn-normal">点击隐藏</button>
+    <script>
+        $('button#hidden-toggle').click(function() {$(".img-box").toggleClass("hidden-toggle")})
+    </script>
 </body>
 
 </html>
