@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            // 快速点击的时候禁止选中元素
+            $('.unselect-ele').attr('unselectable', 'on')
+                .css({
+                    '-moz-user-select': '-moz-none',
+                    '-moz-user-select': 'none',
+                    '-o-user-select': 'none',
+                    '-khtml-user-select': 'none', /* you could also put this in a class */
+                    '-webkit-user-select': 'none',/* and add the CSS class here instead */
+                    '-ms-user-select': 'none',
+                    'user-select': 'none'
+                }).bind('selectstart', function () { return false; }); // deprecated in jQuery UI 1.9
+
+
+            // // 当鼠标经过div的时候显示
+            // $(".wrapper-2010").mousemove(function (e) {
+            //     let $i = $('<span class="unselect-ele"></span>').text('新年快乐~');
+            //     let x = e.pageX,
+            //         y = e.pageY;
+            //     $i.css({
+            //         "z-index": 99999999999999,
+            //         "top": y - 20,
+            //         "left": x,
+            //         "position": "absolute",
+            //         "font-weight": "bold",
+            //         "color": '#' + ('00000' + (Math.random() * 0xffffff << 0).toString(16)).substr(-6)
+            //     });
+            //     $("body").append($i);
+            //     $i.animate({
+            //         "top": y - 180,
+            //         "opacity": 0
+            //     },
+            //         1500,
+            //         function () {
+            //             $i.remove()
+            //         })
+            // })
+
+            // 使用定时器创造元素
+            setInterval(createSpan, 50);
+            function createSpan() {
+                let positionX = 1 + ~~(Math.random() * $(".wrapper-2010").width()),
+                    positionY = 1 + ~~(Math.random() * $(".wrapper-2010").height()),
+                    $i = $('<span class="unselect-ele"></span>').text('新年快乐~');
+                $i.css({
+                    "z-index": 99999999999999,
+                    "top": positionY - 20,
+                    "left": positionX,
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    "color": '#' + ('00000' + (Math.random() * 0xffffff << 0).toString(16)).substr(-6)
+                });
+                $(".wrapper-2010").append($i);
+                $i.animate({
+                    "top": positionY - 280,
+                    "opacity": 0
+                },
+                    2500,
+                    function () {
+                        $i.remove()
+                    })
+            }
+        })
+
+    </script>
+
+    <style>
+        .wrapper-2010 {
+            background: #252854;
+            height: 20rem;
+            width: 100%;
+            border-radius: 5px;
+            position: relative;
+            margin: 2rem auto;
+        }
+
+
+        .text-2010 {
+            flex: 0 0 100%;
+            font-size: 8rem;
+            font-weight: 900;
+            color: #00000000;
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-bottom: 1px solid #d4d7ff;
+            border-top: 1px solid #d4d7ff;
+            background: url(https://image.manyacan.com/202211251726210.gif);
+            background-clip: text;
+            -webkit-background-clip: text;
+            width: 100%;
+            height: 80%;
+        }
+
+        .text-2010:after {
+            content: attr(data-text);
+            -webkit-text-stroke: 1.5px #d4d7ff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -49%);
+            background: url(https://image.manyacan.com/202211251726210.gif);
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-size: 43%;
+            width: max-content;
+
+        }
+    </style>
+
+    <div class="wrapper-2010 unselect-ele">
+        <div class="text-2010" data-text="2023"></div>
+    </div>
+
+
+</body>
+
+</html>
