@@ -1,38 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    * {
+        margin: unset;
+        padding: unset;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: unset;
-            padding: unset;
-        }
+    .box {
+        width: 200px;
+        height: 200px;
+    }
 
-        .box {
-            width: 200px;
-            height: 200px;
-        }
+    .firstBox {
+        background-color: yellowgreen;
+    }
 
-        .firstBox{
-            background-color: yellowgreen;
-            margin-bottom: 50px;
-        }
+    .box>.inner-box {
+        height: 50%;
+        background-color: wheat;
+        margin: 5px;
+        padding: 5px;
+        border: 5px solid #ccc;
+    }
 
-        .secondBox{
-            background-color: cyan;
-            margin-top: 100px;
-        }
-    </style>
-</head>
+    .firstBox>.inner-box {
+        width: 200px;
+    }
 
-<body>
-   <div class="firstBox box"></div>
-   <div class="secondBox box"></div>
+    .secondBox {
+        background-color: cyan;
+    }
 
-</body>
+    .secondBox>.inner-box {
+        background-color: red;
+    }
 
-</html>
+    .clearFix::after {
+        content: '';
+        clear: both;
+        display: block
+    }
+
+    body.theme-dark .board-list.link-list .board-title {
+        color: unset !important;
+    }
+
+    body.theme-dark .board-list .board-item {
+        background: rgba(230, 230, 255, .03);
+    }
+</style>
+<div class="firstBox box">
+    <div class="inner-box"></div>
+</div>
+<div class="secondBox box">
+    <div class="inner-box"></div>
+</div>
