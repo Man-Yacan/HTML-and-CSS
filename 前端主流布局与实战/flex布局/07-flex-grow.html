@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+.flex-demo-08 {
+    height: 400px;
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.flex-demo-08>div {
+    height: 23%;
+    display: flex
+}
+
+
+.flex-demo-08>div>div {
+    width: 20%;
+    height: 100%;
+    border: 2px solid cyan;
+    background-color: violet;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.flex-demo-08>div:nth-of-type(2)>div:last-of-type {
+    flex-grow: .5;
+}
+
+.flex-demo-08>div:nth-of-type(3)>div:first-of-type {
+    flex-grow: .4;
+}
+
+.flex-demo-08>div:nth-of-type(3)>div:last-of-type {
+    flex-grow: .6;
+}
+
+.flex-demo-08>div:last-of-type>div:first-of-type {
+    flex-grow: 4;
+}
+
+.flex-demo-08>div:last-of-type>div:last-of-type {
+    flex-grow: 6;
+}
+</style>
+</head>
+
+<body>
+<div class="flex-demo-08">
+    <div>
+        <div></div>
+        <div>我的宽度：20%</div>
+    </div>
+    <div>
+        <div></div>
+        <div>我的宽度：20%+flex-grow:0.5</div>
+    </div>
+    <div>
+        <div>我的宽度：20%+flex-grow: .4</div>
+        <div>我的宽度：20%+flex-grow: .6</div>
+    </div>
+    <div>
+        <div>我的宽度：20%+flex-grow: 4</div>
+        <div>我的宽度：20%+flex-grow: 6</div>
+    </div>
+</div>
+</body>
+
+</html>

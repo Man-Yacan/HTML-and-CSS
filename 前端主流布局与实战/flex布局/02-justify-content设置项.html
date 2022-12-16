@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.flex-demo-02 {
+    height: 300px;
+    border: 1px solid #ccc;
+}
+
+.flex-demo-02>div {
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.flex-demo-02>div>span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+}
+
+.flex-demo-02>div:last-of-type {
+    justify-content: space-evenly;
+}
+
+.flex-demo-02>div>div {
+    background-color: cyan;
+    width: 30%;
+
+}
+
+.flex-demo-02>div>div:nth-of-type(2) {
+    background-color: yellowgreen;
+}
+
+.flex-demo-02>div>div:last-of-type {
+    background-color:tomato
+}
+</style>
+</head>
+
+<body>
+<div class="flex-demo-02">
+    <div>
+        <span>space-around</span>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div>
+        <span>space-evenly</span>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+</body>
+
+</html>

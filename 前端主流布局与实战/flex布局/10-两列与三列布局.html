@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .flex-demo-11 {
+        height: 200px;
+        background-color: yellowgreen;
+        display: flex
+    }
+
+    .flex-demo-11>div {
+        height: 100%;
+        width: 20%
+    }
+
+    .flex-demo-11>div:first-of-type {
+        background-color: aqua
+    }
+
+    .flex-demo-11>div:nth-of-type(2) {
+        flex-grow: 1;
+        background-color: cadetblue
+    }
+
+    .flex-demo-11>div:last-of-type {
+        background-color: chocolate
+    }
+</style>
+</head>
+<body>
+<div class="flex-demo-11">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>    
+</body>
+</html>

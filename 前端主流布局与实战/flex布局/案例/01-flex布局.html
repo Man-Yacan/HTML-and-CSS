@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .flex-demo-13 {
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: yellowgreen
+    }
+
+    /* 所有div内部文字居中 */
+    .flex-demo-13 div {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    /* Header */
+    .flex-demo-13>div:first-of-type {
+        height: 10%;
+        background-color: aquamarine;
+    }
+
+    /* Nav */
+    .flex-demo-13>div:nth-of-type(2) {
+        justify-content: space-evenly;
+    }
+    .flex-demo-13>div:nth-of-type(2)>div {
+        width: 15%;
+        height: 30px;
+        background-color: blueviolet
+    }
+
+    /* Container */
+    .flex-demo-13>div:nth-of-type(3) {
+        height: 60%;
+    }
+    .flex-demo-13>div:nth-of-type(3)>div {
+        width: 20%;
+        height: 100%;
+    }
+
+    .flex-demo-13>div:nth-of-type(3)>div:first-of-type {
+        background-color: blanchedalmond
+    }
+
+    .flex-demo-13>div:nth-of-type(3)>div:nth-of-type(2) {
+        flex-grow: 1;
+        background-color: #ccc;
+    }
+
+    .flex-demo-13>div:nth-of-type(3)>div:last-of-type {
+        background-color: brown
+    }
+
+    /* Footer */
+    .flex-demo-13>div:last-of-type {
+        height: 10%;
+        background-color: chocolate
+    }
+</style>
+</head>
+
+<body>
+<div class="flex-demo-13">
+    <div>Header</div>
+    <div>
+        <div>Nav1</div>
+        <div>Nav2</div>
+        <div>Nav3</div>
+        <div>Nav4</div>
+        <div>Nav5</div>
+        <div>Nav6</div>
+    </div>
+    <div>
+        <div>Container Left</div>
+        <div>Container Main</div>
+        <div>Container Right</div>
+    </div>
+    <div>Footer</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .flex-demo-12 {
+        height: 400px;
+        display: flex;
+        flex-direction: column
+    }
+
+    .flex-demo-12>div {
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .flex-demo-12>div:first-of-type {
+        background-color: aqua;
+    }
+
+    .flex-demo-12>div:nth-of-type(2) {
+        background-color: yellowgreen;
+        flex-grow: 1;
+    }
+
+    .flex-demo-12>div:last-of-type {
+        background-color: tomato
+    }
+</style>
+</head>
+
+<body>
+<div class="flex-demo-12">
+    <div>Header</div>
+    <div>Container</div>
+    <div>Footer</div>
+</div>
+</body>
+
+</html>

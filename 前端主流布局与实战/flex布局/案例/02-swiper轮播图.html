@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .flex-demo-14 {
+        width: 553px;
+        height: 300px;
+        margin: 10px auto;
+        background-color: yellowgreen;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .flex-demo-14>.img-box {
+        height: 100%;
+        display: flex;
+    }
+
+    .flex-demo-14>.img-box>img {
+        height: 100%;
+    }
+
+    .flex-demo-14>.switch-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .flex-demo-14>.switch-button>div {
+        color: #ccc;
+        background-color: rgba(0, 0, 0, .5);
+        margin-left: 20px;
+        padding: 15px;
+        font-size: xxx-large;
+        cursor: pointer;
+    }
+
+    .flex-demo-14>.switch-button>div:last-of-type {
+        margin-right: 20px;
+    }
+
+    .flex-demo-14>.notice-button {
+        position: absolute;
+        width: 70px;
+        height: 20px;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, .5);
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .flex-demo-14>.notice-button>div {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: all .2s;
+    }
+
+    .flex-demo-14>.notice-button>div:hover {
+        background-color: #fff;
+    }
+</style>
+</head>
+
+<body>
+<div class="flex-demo-14">
+    <div class="img-box">
+        <img src="https://cdn.manyacan.com/background/22.webp">
+        <img src="https://cdn.manyacan.com/background/22.webp">
+        <img src="https://cdn.manyacan.com/background/22.webp">
+        <img src="https://cdn.manyacan.com/background/22.webp">
+        <img src="https://cdn.manyacan.com/background/22.webp">
+    </div>
+    <div class="switch-button">
+        <div><</div>
+        <div>></div>
+    </div>
+    <div class="notice-button">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+</body>
+
+</html>

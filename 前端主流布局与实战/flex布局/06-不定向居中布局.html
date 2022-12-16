@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-demo-07 {
+            height: 300px;
+            background-color: yellowgreen;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .flex-demo-07>div {
+            width: 70px;
+            height: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 0, 0, .3);
+            border-radius: 9px;
+        }
+
+        .flex-demo-07>div>div {
+            width: 10px;
+            height: 10px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-demo-07">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .flex-demo-09 {
+        height: 200px;
+        width: 500px;
+        margin: 0 auto;
+        background-color: yellowgreen;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between
+    }
+
+    .flex-demo-09>div {
+        height: 48%;
+        display: flex
+    }
+
+
+    .flex-demo-09>div>div {
+        width: 400px;
+        height: 100%;
+        box-sizing: border-box;
+        border: 2px solid cyan;
+        background-color: violet;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .flex-demo-09>div>div:last-of-type {
+        width: 600px;
+    }
+
+
+    .flex-demo-09>div:nth-of-type(2)>div:first-of-type {
+        flex-shrink: 2;
+    }
+</style>
+</head>
+
+<body>
+    <div class="flex-demo-09">
+        <div>
+            <div>我的宽度：200px</div>
+            <div>我的宽度：300px</div>
+        </div>
+        <div>
+            <div>我的宽度：114px</div>
+            <div>我的宽度：386px</div>
+        </div>
+    </div>
+</body>
+
+</html>

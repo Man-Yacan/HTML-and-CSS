@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .flex-demo-06 {
+        display: flex;
+    }
+
+    .flex-demo-06>div {
+        height: 20px;
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid cyan;
+    }
+
+    .flex-demo-06>div:first-of-type,
+    .flex-demo-06>div:nth-of-type(3) {
+        margin-right: auto;
+    }
+</style>
+</head>
+
+<body>
+<div class="flex-demo-06">
+    <div>1</div>
+    <div>2.1</div>
+    <div>2.2</div>
+    <div>3.1</div>
+    <div>3.2</div>
+</div>
+</body>
+
+</html>
