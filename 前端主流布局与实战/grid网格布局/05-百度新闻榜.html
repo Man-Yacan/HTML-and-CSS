@@ -1,0 +1,85 @@
+<style>
+    .grid-demo-24 {
+        max-width: 1000px;
+        margin: 10px auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    .grid-demo-24>h5 {
+        margin: 10px 0 10px 0;
+    }
+
+    .grid-demo-24>.news-box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+        gap: 5px;
+    }
+
+    .grid-demo-24>.news-box>div {
+        background-image: linear-gradient(#187fe6, #32aff2);
+        border: 1px solid #2a9adc;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .grid-demo-24>.news-box>div:first-of-type {
+        grid-area: 1 / 2 / span 2 / span 2;
+    }
+
+    .grid-demo-24>.news-box>div:nth-of-type(3) {
+        background-image: linear-gradient(#f2246c, #fe5bac);
+        border: 1px solid #da2061;
+    }
+
+    .grid-demo-24>.news-box>div:nth-last-of-type(2) {
+        grid-area: auto/auto/auto/span 2;
+    }
+
+    .grid-demo-24>.news-box>div:nth-of-type(n+7) {
+        background-image: linear-gradient(#d46300, #e5ad1c);
+        border: 1px solid #cd9818;
+    }
+
+    .grid-demo-24>.page-btn {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 3px;
+    }
+
+    .grid-demo-24>.page-btn>button {
+        cursor: pointer;
+        border: 1px solid #fe5bac;
+        background: unset;
+        transition: all .2s;
+    }
+
+    .grid-demo-24>.page-btn>button:hover {
+        background-color: yellowgreen
+    }
+
+    .grid-demo-24>.page-btn>button:first-of-type {
+        background-color: yellowgreen
+    }
+</style>
+<div class="grid-demo-24">
+    <h5>新闻热榜</h5>
+    <div class="news-box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+    <div class="page-btn">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+</div>

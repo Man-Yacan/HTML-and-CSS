@@ -1,0 +1,33 @@
+<style>
+    .grid-demo-17 {
+        width: 300px;
+        height: 300px;
+        background-color: blueviolet;
+        margin: 10px auto;
+        display: grid;
+        grid-template-rows: [row1] 100px [row2] 100px [row3] 100px [row4];
+        grid-template-columns: [col1] 100px [col2] 100px [col3] 100px [col4];
+    }
+
+    .grid-demo-17>div {
+        width: 50%;
+        height: 50%;
+        background-color: aquamarine;
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .grid-demo-17>div:first-of-type {
+        grid-column-start: col1;
+        grid-column-end: span 2;
+    }
+</style>
+
+<div class="grid-demo-17">
+    <div>1</div>
+    <div>2</div>
+</div>

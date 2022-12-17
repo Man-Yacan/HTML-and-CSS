@@ -1,0 +1,132 @@
+<style>
+    .grid-demo-25 {
+        height: 500px;
+        display: flex;
+        border: 1px solid #ccc;
+    }
+
+    .grid-demo-25>.nav {
+        width: 30%;
+        padding-left: 20px;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: relative;
+    }
+
+    .grid-demo-25>.nav a {
+        color: inherit;
+        text-decoration: none;
+        display: block;
+        height: 42px;
+        line-height: 42px;
+        width: 100%;
+        position: relative;
+        background-color: rgba(0, 0, 0, .3);
+        padding: 0 10px;
+        box-sizing: border-box;
+        transition: all .2s;
+    }
+
+    .grid-demo-25>.nav a:hover {
+        background-color: ff6801;
+    }
+
+    .grid-demo-25>.nav a::after {
+        content: '>';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .grid-demo-25>.menu-list {
+        flex-grow: 1;
+        height: 100%;
+    }
+
+
+    .grid-demo-25>.menu-list>div {
+        width: 100%;
+        height: 100%;
+        background-color: #ccc;
+        grid-template-rows: repeat(5, 1fr);
+        grid-auto-flow: column;
+        display: none;
+        transition: all .2s;
+    }
+
+    .grid-demo-25>.menu-list>div>div {
+        border: 1px solid #ccc;
+        background-color: tomato;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .box-hidden {
+        display: grid !important;
+    }
+</style>
+<div class="grid-demo-25">
+    <ul class="nav">
+        <li><a href="/">手机 电话卡</a></li>
+        <li><a href="/">笔记本 显示器 平板</a></li>
+    </ul>
+
+    <div class="menu-list">
+        <div>
+            <div>1-商品-Demo-1</div>
+            <div>1-商品-Demo-2</div>
+            <div>1-商品-Demo-3</div>
+            <div>1-商品-Demo-4</div>
+            <div>1-商品-Demo-5</div>
+            <div>1-商品-Demo-6</div>
+            <div>1-商品-Demo-7</div>
+            <div>1-商品-Demo-8</div>
+            <div>1-商品-Demo-9</div>
+            <div>1-商品-Demo-10</div>
+            <div>1-商品-Demo-11</div>
+            <div>1-商品-Demo-12</div>
+            <div>1-商品-Demo-13</div>
+            <div>1-商品-Demo-14</div>
+            <div>1-商品-Demo-15</div>
+            <div>1-商品-Demo-16</div>
+            <div>1-商品-Demo-17</div>
+            <div>1-商品-Demo-18</div>
+            <div>1-商品-Demo-19</div>
+            <div>1-商品-Demo-20</div>
+        </div>
+        <div>
+            <div>2-商品-Demo-1</div>
+            <div>2-商品-Demo-2</div>
+            <div>2-商品-Demo-3</div>
+            <div>2-商品-Demo-4</div>
+            <div>2-商品-Demo-5</div>
+            <div>2-商品-Demo-6</div>
+            <div>2-商品-Demo-7</div>
+            <div>2-商品-Demo-8</div>
+            <div>2-商品-Demo-9</div>
+            <div>2-商品-Demo-10</div>
+            <div>2-商品-Demo-11</div>
+            <div>2-商品-Demo-12</div>
+            <div>2-商品-Demo-13</div>
+            <div>2-商品-Demo-14</div>
+            <div>2-商品-Demo-15</div>
+            <div>2-商品-Demo-16</div>
+            <div>2-商品-Demo-17</div>
+            <div>2-商品-Demo-18</div>
+            <div>2-商品-Demo-19</div>
+            <div>2-商品-Demo-20</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.grid-demo-25>.nav a').each(function (index) {
+        $(this).hover(function () {
+            $('.menu-list>div:eq(' + index + ')').toggleClass('box-hidden')
+        })
+    })
+</script>
