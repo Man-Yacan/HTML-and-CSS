@@ -1,0 +1,33 @@
+<style>
+    .media-00 {
+        width: 300px;
+        height: 300px;
+        background-color: yellowgreen;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+@media screen and (min-width:700px) and (max-width:1200px) {
+    .media-00 {
+        background-color: cyan;
+    }
+}
+
+@media (orientation: portrait) {
+    .media-00 {
+        color: brown;
+    }
+}
+
+@media (orientation: landscape) {
+    .media-00 {
+        color: blueviolet;
+    }
+}
+</style>
+<link rel="stylesheet" href="style.css" media="screen and (min-width:700px) and (max-width:1200px)">
+<div class="media-00">
+    我是一个div
+</div>

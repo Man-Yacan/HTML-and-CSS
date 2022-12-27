@@ -1,0 +1,59 @@
+<style>
+    .flex-demo-09 {
+        height: 200px;
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .flex-demo-09>div {
+        margin: 0 auto;
+        width: 500px;
+        height: 100%;
+        background-color: yellowgreen;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .flex-demo-09>div>div {
+        height: 48%;
+        display: flex
+    }
+
+
+    .flex-demo-09>div>div>div {
+        width: 400px;
+        height: 100%;
+        box-sizing: border-box;
+        border: 2px solid cyan;
+        background-color: violet;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .flex-demo-09>div>div>div:last-of-type {
+        width: 600px;
+    }
+
+
+    .flex-demo-09>div>div:nth-of-type(2)>div:first-of-type {
+        flex-shrink: 2;
+    }
+</style>
+
+<div class="flex-demo-09">
+    <div>
+        <div>
+            <div>我的宽度：200px</div>
+            <div>我的宽度：300px</div>
+        </div>
+        <div>
+            <div>我的宽度：114px</div>
+            <div>我的宽度：386px</div>
+        </div>
+    </div>
+</div>
