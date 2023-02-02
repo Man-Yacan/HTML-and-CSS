@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="download">下载索引</button>
+    <button id="downloadAuthorSql">下载作者表结构</button>
+    <button id="downloadPoetrySql">下载内容表结构</button>
+    <script src="./js/util/saveData.js"></script>
+    <script src="./js/index/file_path_idx.js"></script>
+    <script>
+        let log = console.log.bind(console)
+        let global_base_path = '/code/project/poetry-source'
+
+        // 异步请求
+        let httpRequest = function (url) {
+            return new Promise((resolve, reject) => {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        resolve(JSON.parse(xhr.responseText));
+                    }
+                }
+                xhr.send();
+            })
+        }
+
+        let contentCutIndex = function (source) {
+            if (!source || !source.length) {
+                return 0
+            }
+            const cutChar = ['，', '。', '？', '！']
+            let minIdx = source.length
+            for (let i = 0; i < cutChar.length; i++) {
+                let cutIndex = source.indexOf(cutChar[i])
+                if (cutIndex != -1) {
+                    minIdx = Math.min(minIdx, cutIndex)
+                }
+            }
+
+            return minIdx;
+        }
+
+        let main_author = [
+            "苏轼", "李白", "陆游", "王维", "杜甫", "杜牧", "屈原", "柳永", "李煜",
+            "王勃", "李贺", "秦观", "曹操", "曹植", "李商隐", "辛弃疾", "李清照", "白居易",
+            "陶渊明", "温庭筠", "欧阳修", "晏几道", "刘禹锡", "孟浩然", "张若虚",
+            "陈子昂", "贺知章", "王昌龄", "孟郊", "贾岛", "周邦彦", "晏殊", "姜夔", "纳兰性德"
+        ]
+        let is_main_index = true
+
+        let fullIndex = {}
+        let fileCount = file_path_idx.length
+        let dealFileCount = 0
+        let baseDict = {
+            category: { DYNASTY: 'dynasty', AUTHOR: 'author' },
+            dynasty: { counter: 0, dict: {} },
+            author: { counter: 0, dict: {} }
+        }
+
+        function getDictIndex(category, key) {
+            if (!baseDict[category].dict[key]) {
+                // 未包含
+                baseDict[category].counter += 1
+                baseDict[category].dict[key] = baseDict[category].counter
+            }
+            return baseDict[category].dict[key]
+        }
+
+        function buildFullIndex() {
+            file_path_idx.forEach((path, f_idx) => {
+                httpRequest(`${global_base_path}/source/${path}`).then(data => {
+                    // console.log(path)
+                    // console.log(data.length)
+                    let currIndex = {}
+                    data.map((item, i_idx) => {
+                        if (!is_main_index || main_author.includes(item.authorName)) {
+                            let dynasty_code = getDictIndex(baseDict.category.DYNASTY, item.dynasty)
+                            let author_code = getDictIndex(baseDict.category.AUTHOR, item.authorName)
+
+                            // currIndex[
+                            //     `${item.dynasty}-${item.title}-${item.authorName}-${item.content ? item.content[0].substr(0, contentCutIndex(item.content[0])) : ''}`
+                            // ] = `${f_idx}-${i_idx}`
+                            currIndex[
+                                `${dynasty_code}-${item.title}-${author_code}-${item.content ? item.content[0].substr(0, contentCutIndex(item.content[0])) : ''}`
+                            ] = `${f_idx}-${i_idx}`
+                        }
+                    })
+
+                    return currIndex
+                }).then(idx_list => {
+                    Object.assign(fullIndex, idx_list)
+                    dealFileCount++
+                })
+            });
+        }
+
+        function rebuild() {
+            let result = {}
+            Object.keys(search_data_index).forEach(key => {
+                let metas = key.split('-');
+                let dynastyCode = metas[0];
+                let authorCode = metas[2];
+                metas[0] = base_dict.dynasty.dict[dynastyCode]
+                metas[2] = base_dict.author.dict[authorCode]
+                result[metas.join('-')] = search_data_index[key]
+            })
+        }
+
+        // object key value 翻转
+        const invertKeyValues = obj =>
+            Object.keys(obj).reduce((acc, key) => {
+                acc[obj[key]] = key;
+                return acc;
+            }, {});
+
+        download.onclick = function () {
+            fullIndex = {}
+            dealFileCount = 0
+            buildFullIndex()
+
+            let timer = setInterval(() => {
+                if (dealFileCount !== fileCount) {
+                    log("等待解析中..." + dealFileCount + "/" + fileCount)
+                } else {
+                    clearInterval(timer);
+                    log("已解析完成..." + dealFileCount + "/" + fileCount)
+
+                    // baseDict 翻转 
+                    log(baseDict)
+                    baseDict.dynasty.dict = invertKeyValues(baseDict.dynasty.dict)
+                    baseDict.author.dict = invertKeyValues(baseDict.author.dict)
+                    log(baseDict)
+
+                    saveData.setDataConver({
+                        name: `${is_main_index ? 'main' : 'full'}_data_index.js`,
+                        data:
+`search_data_index = ${JSON.stringify(fullIndex)};
+base_dict = ${JSON.stringify(baseDict)};
+let result = {}
+Object.keys(search_data_index).forEach(key => {
+    let metas = key.split('-');
+    let dynastyCode = metas[0];
+    let authorCode = metas[2];
+    metas[0] = base_dict.dynasty.dict[dynastyCode]
+    metas[2] = base_dict.author.dict[authorCode]
+    result[metas.join('-')] = search_data_index[key]
+})
+search_data_index = result
+`
+                    })
+                }
+            }, 500)
+
+            // saveData.setDataConver({ name: 'full_data_index.json', data: JSON.stringify(fullIndex, null, 2) })
+        }
+
+
+        function sqlNormalize(inStr) {
+            if (Array.isArray(inStr)) {
+                inStr = inStr.join("\n")
+            }
+
+            return inStr.replace(/\r?\n/g, "\\n")
+                .replace(/'/g, "\\'")
+        }
+
+        function sqlBuilder(tableName, titleList, data, defaultMap) {
+            let columnSeg = titleList.map(title => `\`${title}\``).join(', ')
+            return data.map(
+                item => titleList.map(
+                    title => item[title] ? `'${sqlNormalize(item[title])}'` :
+                        defaultMap[title] ? `'${sqlNormalize(defaultMap[title])}'` : 'null'
+                ).join(', ')
+            )
+                .map(seg => `insert into ${tableName} (${columnSeg}) values (${seg});`)
+                .join('\n');
+        }
+
+        downloadAuthorSql.onclick = function () {
+            let titleList = ['id', 'name', 'dynasty', 'birthYear', 'deathYear', 'desc']
+            httpRequest('source/作者.json').then(data => {
+                let sql = sqlBuilder('t_author', titleList, data)
+                saveData.setDataConver({
+                    name: `author.sql`,
+                    data: sql
+                })
+            })
+        }
+
+        downloadPoetrySql.onclick = function () {
+            let titleList = ['id', 'title', 'authorName', 'authorId', 'dynasty', 'appreciation', 'content', 'comment', 'translation', 'intro', 'foreword', 'annotation', 'kindCN']
+
+            let sqlList = []
+            let sql_file_idx = 0
+            file_path_idx.forEach((path, f_idx) => {
+                let kindCN = path.substr(0, 1)
+                httpRequest(`${global_base_path}/source/${path}`).then(data => sqlBuilder('t_work', titleList, data, { kindCN: kindCN }))
+                    .then(sql => {
+                        dealFileCount++
+                        sqlList.push(sql)
+                        if (dealFileCount === fileCount) {
+                            saveData.setDataConver({
+                                name: `work_${sql_file_idx}.sql`,
+                                data: sqlList.join('\n')
+                            })
+                            sql_file_idx++
+                            sqlList = []
+                        }
+                    })
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>
